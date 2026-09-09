@@ -1,0 +1,17 @@
+schema_version: canon-mount-bootstrap/v1
+id: mount.talomnia
+status: draft
+runtime_eligible: false
+authority_domain: authority.arcanada
+mount_scope: scope.space.talomnia
+inherited_universe: scope.universe.arcanada
+universe_access: read_only
+projects: [scope.project.talomnia-workforce]
+galaxy: null
+modules: []
+source_registry:
+  repository: Arcanada-one/arcanada-workspace
+  revision: 4fd75d83648a48f16c54c73ce0941c0eb5774843
+  path: spaces/talomnia/space.yml
+membership_owner: workspace-spaces-registry
+activation: disabled_pending_scope_auth_and_parity_receipts

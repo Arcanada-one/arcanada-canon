@@ -1,0 +1,169 @@
+{
+  "schema": "CanonAdoptionSourceManifest/v1",
+  "source_repository": "Arcanada-one/arcanada-workspace",
+  "source_commit": "bb8b9a6bbc2443605bdc6bca47a28c97134a73f7",
+  "source_pr": 1112,
+  "files": [
+    {
+      "path": "docs/specifications/canon-arcana/00-dialog-origin-20260910.md",
+      "sha256": "6f102e5357cefc3aa866ada214bf5ff125e74a4d670cec04000354bb66cf169f"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/01-TZ-control-arcana-v0.1.md",
+      "sha256": "5ab710c3885fcb31dbdb9046c5c6d61995b2100b918dc9323fc2d425ab044a3d"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/02-TZ-multiportal-context-selection-v0.2.md",
+      "sha256": "3082fe8014bb71c1243358381c2b61ab8035381e2edfa8031c387bd5fdc1eeb0"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/03-TZ-consilium-context-selection-v0.3.md",
+      "sha256": "115e5a8272fbdfa346061ae6d0875633cbb9c7f8bcab74408d3473ef9af2de7f"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/04-SHA256SUMS-v0.3.txt",
+      "sha256": "732a85884fb3b1a6ccb3afaf667d7baed12c92d4f10f6d87c61393b9b1864f8b"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/INDEX.md",
+      "sha256": "623dab65ac7385e54f4fd41d8954925d6dca86d6ef1bc8e12478467f30196e03"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/OPEN-QUESTIONS.md",
+      "sha256": "ff217c17c357892488944b7beef5b250bd2b8c7d0bdb40f2a20c3ad6a622171d"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/00-common-council-contract.md",
+      "sha256": "23615eb936da409430290a25df28daf136e7880113c83bfb05e4db16b0b91635"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/01-meaning-ledger-extractor.md",
+      "sha256": "2670ea46e2aa386212130d31c03a7c40418039851758fb4c668824c536bc57de"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/02-semantic-conservator.md",
+      "sha256": "f9145f63c7858cef65c788cddd731aaaa880376110b9f992f8c26a818cfda0e6"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/03-normative-architect.md",
+      "sha256": "f21cfac7b25590052b1c561689143e50860a7a2a121b6f07bb9860f0d6e3b905"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/04-compression-engineer.md",
+      "sha256": "2088f25eff27ff61045a0f6c45c94874d6ebe619e286d74717392fc9a4f5f9ec"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/05-scope-inheritance-auditor.md",
+      "sha256": "9f5b2cee0f47c8417efc2bb0dc762fcf6afac3dd1cad595ebd048c83ad42f5de"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/06-adversarial-fidelity-auditor.md",
+      "sha256": "281c2988ad44db468224759e8c619e67711ef845c26b96d29017f6871d63def8"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/07-canon-consigliere.md",
+      "sha256": "a0442a93a75eaea1ce199da44a1268ed17f15aa7fa8e6c13c26067633ca64c96"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/08-independent-release-verifier.md",
+      "sha256": "36b17c09b637dd9790aac9fe96cd29357dff51df1e83de4a62c52fbeff938f74"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/README.md",
+      "sha256": "937744429c296d1d31803be8c6eff9ac8360ed44224957ee271423557dd0420a"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/prompt-bundle.yaml",
+      "sha256": "3fa13a178ce099c7463be3a6dfe1771f2b6f0faaa93dd2193af5ea2aa961d6b0"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/schemas/audit-output.schema.json",
+      "sha256": "e05ccd9282895c2d8e58e3b87579ce317647df536621d6ef490fa036bedd48ef"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/schemas/compiler-candidate.schema.json",
+      "sha256": "b1d1bd08730a1c856c2ff3d54247d086fd0b660cd7eb727890c6057853ccbdab"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/schemas/consigliere-decision.schema.json",
+      "sha256": "2708b9f88388b1016b7175f37f91b59cd23bf2208e404806f31f5d3982720dfd"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/schemas/meaning-ledger-output.schema.json",
+      "sha256": "de11c149c0a2d599629bf6525bb59283b736bb6a96c21ba8efe0a5752fe7835d"
+    },
+    {
+      "path": "docs/specifications/canon-arcana/prompt-bundle-v1/schemas/verification-output.schema.json",
+      "sha256": "5fa84bd7fd8f7ecf85ddbfe72db00852ce242568cf50e1a2585b3d6316fab280"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/00-common-council-contract.md",
+      "sha256": "23615eb936da409430290a25df28daf136e7880113c83bfb05e4db16b0b91635"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/01-meaning-ledger-extractor.md",
+      "sha256": "2670ea46e2aa386212130d31c03a7c40418039851758fb4c668824c536bc57de"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/02-semantic-conservator.md",
+      "sha256": "f9145f63c7858cef65c788cddd731aaaa880376110b9f992f8c26a818cfda0e6"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/03-normative-architect.md",
+      "sha256": "f21cfac7b25590052b1c561689143e50860a7a2a121b6f07bb9860f0d6e3b905"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/04-compression-engineer.md",
+      "sha256": "2088f25eff27ff61045a0f6c45c94874d6ebe619e286d74717392fc9a4f5f9ec"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/05-scope-inheritance-auditor.md",
+      "sha256": "9f5b2cee0f47c8417efc2bb0dc762fcf6afac3dd1cad595ebd048c83ad42f5de"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/06-adversarial-fidelity-auditor.md",
+      "sha256": "281c2988ad44db468224759e8c619e67711ef845c26b96d29017f6871d63def8"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/07-canon-consigliere.md",
+      "sha256": "a0442a93a75eaea1ce199da44a1268ed17f15aa7fa8e6c13c26067633ca64c96"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/08-independent-release-verifier.md",
+      "sha256": "36b17c09b637dd9790aac9fe96cd29357dff51df1e83de4a62c52fbeff938f74"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/README.md",
+      "sha256": "937744429c296d1d31803be8c6eff9ac8360ed44224957ee271423557dd0420a"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/prompt-bundle.yaml",
+      "sha256": "3fa13a178ce099c7463be3a6dfe1771f2b6f0faaa93dd2193af5ea2aa961d6b0"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/schemas/audit-output.schema.json",
+      "sha256": "e05ccd9282895c2d8e58e3b87579ce317647df536621d6ef490fa036bedd48ef"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/schemas/compiler-candidate.schema.json",
+      "sha256": "b1d1bd08730a1c856c2ff3d54247d086fd0b660cd7eb727890c6057853ccbdab"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/schemas/consigliere-decision.schema.json",
+      "sha256": "2708b9f88388b1016b7175f37f91b59cd23bf2208e404806f31f5d3982720dfd"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/schemas/meaning-ledger-output.schema.json",
+      "sha256": "de11c149c0a2d599629bf6525bb59283b736bb6a96c21ba8efe0a5752fe7835d"
+    },
+    {
+      "path": "compiler/prompts/imported-v1/schemas/verification-output.schema.json",
+      "sha256": "5fa84bd7fd8f7ecf85ddbfe72db00852ce242568cf50e1a2585b3d6316fab280"
+    }
+  ],
+  "original_zip_verdict": "not_measured",
+  "claimed_zip_sha256": "f56edb29bcbe3dd2c99e3a0743e689914e24cb850387d7c608eaa055e6108192",
+  "archive_mismatch_reported_by": "docs/specifications/canon-arcana/INDEX.md",
+  "submitted_diff_verdict": "not_measured",
+  "production_eligible": false
+}

@@ -1,0 +1,3 @@
+115e5a8272fbdfa346061ae6d0875633cbb9c7f8bcab74408d3473ef9af2de7f  /mnt/data/Canon_Arcana_Consilium_Context_Selection_TZ_v0.3.md
+f56edb29bcbe3dd2c99e3a0743e689914e24cb850387d7c608eaa055e6108192  /mnt/data/canon-consilium-prompt-bundle-v1.zip
+8d3f1361567d76acab56976780cbbc8ba54d6084506f8a4eaf830de1d5e92a3c  /mnt/data/Canon_Arcana_v0.2_to_v0.3.diff

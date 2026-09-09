@@ -1,0 +1,31 @@
+# Design profile; these are duties and admission requirements, not runnable seats.
+schema_version: canon-council-bootstrap/v1
+id: council-foundation-adoption-v1
+status: draft
+publication_enabled: false
+prompt_source: ../prompts/imported-v1/prompt-bundle.yaml
+prompt_admission: rejected_pending_derived_revision
+roles:
+  candidates: [semantic-conservator, normative-architect, compression-engineer]
+  auditors: [scope-inheritance-auditor, adversarial-fidelity-auditor]
+  chair: canon-consigliere
+  foundation_verifiers: [independent-release-verifier-a, independent-release-verifier-b]
+review:
+  signer_kind: independent-agent
+  required_receipt_fields: [reviewer_incarnation, input_digests, verdict, evidence, unresolved_objections]
+  author_can_activate: false
+  missing_evidence: evidence_insufficient
+portfolio:
+  minimum_distinct_model_families: 3
+  minimum_distinct_providers: 2
+  maximum_candidate_seats_per_family: 2
+  minimum_quality_tier: canon-compiler-approved
+  approved_routes: []
+  measured_quality: not_measured
+  privacy_precedes_diversity: true
+  outage_fallback: hold_candidate_keep_eligible_previous_release
+stop:
+  maximum_targeted_revision_rounds: 1
+  unresolved_critical_objections: block
+  missing_source_coverage: block
+  budget_missing: block

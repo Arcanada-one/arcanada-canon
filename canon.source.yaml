@@ -1,0 +1,22 @@
+# Proposed bootstrap manifest; Canon runtime admission is not implemented.
+schema_version: canon-source-bootstrap/v1
+id: source.arcanada.canon
+kind: git
+provider: github
+repository: Arcanada-one/arcanada-canon
+default_branch: main
+authority_domain: authority.arcanada
+visibility: private
+publication_enabled: false
+active_release: null
+unknown_root_policy: deny
+source_roots:
+  - {path: /canon, class: runtime_canon, runtime_eligible: true}
+  - {path: /governance, class: compiler_governance, runtime_eligible: false}
+  - {path: /compiler, class: compiler_input, runtime_eligible: false}
+  - {path: /docs, class: specification, runtime_eligible: false}
+  - {path: /proposals, class: proposal, runtime_eligible: false}
+  - {path: /tests, class: test, runtime_eligible: false}
+  - {path: /generated, class: generated, runtime_eligible: false}
+  - {path: /engine, class: compiler_input, runtime_eligible: false}
+  - {path: /schemas, class: compiler_input, runtime_eligible: false}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "verification_decision",
+    "metrics",
+    "findings",
+    "failed_meaning_ids",
+    "failed_clause_ids",
+    "counterexamples",
+    "required_actions",
+    "evidence_references"
+  ],
+  "properties": {
+    "verification_decision": {
+      "enum": [
+        "pass",
+        "fail",
+        "human_required"
+      ]
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "failed_meaning_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "failed_clause_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterexamples": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

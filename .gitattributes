@@ -1,0 +1,5 @@
+# Immutable original specifications preserve intentional Markdown hard breaks.
+docs/specifications/canon-arcana/00-dialog-origin-20260910.md whitespace=-blank-at-eol
+docs/specifications/canon-arcana/01-TZ-control-arcana-v0.1.md whitespace=-blank-at-eol
+docs/specifications/canon-arcana/02-TZ-multiportal-context-selection-v0.2.md whitespace=-blank-at-eol
+docs/specifications/canon-arcana/03-TZ-consilium-context-selection-v0.3.md whitespace=-blank-at-eol

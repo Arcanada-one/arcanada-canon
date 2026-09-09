@@ -1,0 +1,116 @@
+{
+  "schema": "CanonGoldenSeed/v1-proposed",
+  "status": "case_definitions_only",
+  "execution_verdict": "not_measured",
+  "cases": [
+    {
+      "id": "G01",
+      "input_condition": "required prohibition ranked below top-k",
+      "expected_property": "prohibition remains applicable or action refuses",
+      "candidate_ac_reference": "AC-013",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G02",
+      "input_condition": "normative root requested from compiler/docs prefix",
+      "expected_property": "deny runtime hydration",
+      "candidate_ac_reference": "AC-047",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G03",
+      "input_condition": "foreign actor requests same-sized private body",
+      "expected_property": "deny before body hydration; no URI/count leakage",
+      "candidate_ac_reference": "AC-031",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G04",
+      "input_condition": "descriptive charter purpose with no modality",
+      "expected_property": "preserve descriptive proposition without inventing MUST",
+      "candidate_ac_reference": "AC-042",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G05",
+      "input_condition": "verifier pass with empty metrics and references",
+      "expected_property": "reject admission despite imported v1 schema acceptance",
+      "candidate_ac_reference": "AC-043",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G06",
+      "input_condition": "signature mismatch or revoked pinned parent",
+      "expected_property": "deny activation/action; no revoked fallback",
+      "candidate_ac_reference": "AC-032",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G07",
+      "input_condition": "legacy ScopePack lacks local/effective kind",
+      "expected_property": "typed ambiguous-alias refusal",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property",
+      "decision_ref": "DEC-AUP-0025"
+    },
+    {
+      "id": "G08",
+      "input_condition": "existing source changed after migration freeze",
+      "expected_property": "reject cutover; preserve predecessor writer",
+      "candidate_ac_reference": "AC-042",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G09",
+      "input_condition": "new optional index generation during active run",
+      "expected_property": "snapshot unchanged; new generation for new runs",
+      "candidate_ac_reference": "AC-029",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G10",
+      "input_condition": "candidate edits foundation verifier policy",
+      "expected_property": "previous admitted trust root governs; no selfapproval",
+      "candidate_ac_reference": "AC-048",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property",
+      "decision_ref": "DEC-AUP-0024"
+    },
+    {
+      "id": "G11",
+      "input_condition": "private data cannot use diverse approved providers",
+      "expected_property": "hold production candidate; no privacy escape",
+      "candidate_ac_reference": "AC-041",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    },
+    {
+      "id": "G12",
+      "input_condition": "source clause omitted before ledger generation",
+      "expected_property": "independent source denominator detects loss",
+      "candidate_ac_reference": "AC-042",
+      "exact_fixture_bytes": "required_by_work_package",
+      "oracle": "independent source-based checker",
+      "source_section": "v0.3 section33; adoption supplements refine the stated property"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "ReadinessReceipt/v1",
+  "id": "canon-bootstrap-source-copy",
+  "measured_at_utc": "2026-09-09T22:31:02.369287+00:00",
+  "verdict": "pass",
+  "files_copied_from_reviewed_draft": 59,
+  "copy_mismatches": 0,
+  "source_manifest": "governance/adoption/source-manifest.json",
+  "source_manifest_entries": 39,
+  "authority": {
+    "repository": "Arcanada-one/arcanada-universal-program",
+    "pr": 29,
+    "main_commit": "94c1e495d02c5c0c66152f0aa4f9995ecd8bb480",
+    "decisions": [
+      "DEC-AUP-0022",
+      "DEC-AUP-0023",
+      "DEC-AUP-0024",
+      "DEC-AUP-0025",
+      "DEC-AUP-0026"
+    ]
+  },
+  "review": "https://github.com/Arcanada-one/arcanada-universal-program/blob/94c1e495d02c5c0c66152f0aa4f9995ecd8bb480/governance/consilium/2026-09-09-canon-adoption/FINAL-REVIEW.md",
+  "repository_creation": {
+    "repository": "Arcanada-one/arcanada-canon",
+    "private": true,
+    "created_at_utc": "2026-09-09T22:30:13Z",
+    "platform_seed_commit": "f543e0aced1e6133f51de1c89b1e11c3240409e1",
+    "substantive_changes": "branch and PR only"
+  },
+  "checks": {
+    "source_copy_hashes": "pass",
+    "JSON_schema_metavalidation": "pass",
+    "YAML_syntax": "pass",
+    "scoped_gitleaks": "pass",
+    "semantic_review": "pass"
+  },
+  "unmeasured": [
+    "automatic CI",
+    "complete Phase0 exits",
+    "runtime activation",
+    "tenant isolation",
+    "model portfolio",
+    "Muneral writes",
+    "deployment"
+  ]
+}
