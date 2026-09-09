@@ -1,0 +1,8 @@
+config/credentials/
+.env
+.env.*
+!.env.example
+target/
+node_modules/
+__pycache__/
+*.pyc

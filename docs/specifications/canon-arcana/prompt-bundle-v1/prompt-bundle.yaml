@@ -1,0 +1,16 @@
+id: canon-prompt-bundle.v1
+version: 1.0.0
+language: en
+runtime_eligible: false
+allowed_consumers: [canon-compiler]
+common_contract: 00-common-council-contract.md
+prompts:
+  meaning_ledger_extractor: 01-meaning-ledger-extractor.md
+  semantic_conservator: 02-semantic-conservator.md
+  normative_architect: 03-normative-architect.md
+  compression_engineer: 04-compression-engineer.md
+  scope_inheritance_auditor: 05-scope-inheritance-auditor.md
+  adversarial_fidelity_auditor: 06-adversarial-fidelity-auditor.md
+  canon_consigliere: 07-canon-consigliere.md
+  independent_release_verifier: 08-independent-release-verifier.md
+schemas_path: schemas/

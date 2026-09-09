@@ -1,0 +1,394 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "sourceRef": {
+      "type": "object",
+      "required": [
+        "artifact_id",
+        "anchor"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "meaningUnit": {
+      "type": "object",
+      "required": [
+        "temporary_id",
+        "source_fragment_refs",
+        "statement_type",
+        "subject",
+        "predicate",
+        "object",
+        "modality",
+        "polarity",
+        "authority",
+        "scope",
+        "conditions",
+        "exceptions",
+        "thresholds_and_units",
+        "temporal_relations",
+        "concise_english_semantic_gloss",
+        "ambiguity_flags"
+      ],
+      "properties": {
+        "temporary_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_fragment_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/sourceRef"
+          }
+        },
+        "statement_type": {
+          "enum": [
+            "obligation",
+            "prohibition",
+            "recommendation",
+            "permission",
+            "definition",
+            "preference",
+            "descriptive",
+            "example",
+            "research",
+            "idea"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "predicate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "object": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modality": {
+          "enum": [
+            "must",
+            "must_not",
+            "should",
+            "should_not",
+            "may",
+            "defines",
+            "prefers",
+            "none"
+          ]
+        },
+        "polarity": {
+          "enum": [
+            "positive",
+            "negative",
+            "neutral"
+          ]
+        },
+        "authority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "thresholds_and_units": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "temporal_relations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "criticality_hint": {
+          "enum": [
+            "critical",
+            "high",
+            "normal",
+            "advisory",
+            "unknown"
+          ]
+        },
+        "compressibility_hint": {
+          "enum": [
+            "normal",
+            "constrained",
+            "non_compressible",
+            "unknown"
+          ]
+        },
+        "glossary_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "concise_english_semantic_gloss": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ambiguity_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "clause": {
+      "type": "object",
+      "required": [
+        "temporary_id",
+        "canonical_text",
+        "modality",
+        "criticality",
+        "meaning_unit_ids",
+        "applicability"
+      ],
+      "properties": {
+        "temporary_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modality": {
+          "enum": [
+            "must",
+            "must_not",
+            "should",
+            "should_not",
+            "may",
+            "defines",
+            "prefers"
+          ]
+        },
+        "criticality": {
+          "enum": [
+            "critical",
+            "high",
+            "normal",
+            "advisory"
+          ]
+        },
+        "meaning_unit_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "inherited_clause_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "applicability": {
+          "type": "object"
+        },
+        "representations": {
+          "type": "object",
+          "properties": {
+            "micro": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "standard": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "full": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "non_compressible": {
+          "type": "boolean"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourceRef"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "objection": {
+      "type": "object",
+      "required": [
+        "target_candidate",
+        "kind",
+        "severity",
+        "evidence",
+        "source_meaning_ids"
+      ],
+      "properties": {
+        "target_candidate": {
+          "type": "string"
+        },
+        "target_clause": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "blocker",
+            "high",
+            "normal",
+            "advisory"
+          ]
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_meaning_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "suggested_resolution": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "required": [
+    "candidate_reviews",
+    "objections"
+  ],
+  "properties": {
+    "candidate_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "objections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/objection"
+      }
+    },
+    "missing_inherited_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "wrong_destination_items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "merge_legality_findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "clause_findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "counterexamples": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unsupported_additions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "missing_meanings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mutation_detection_results": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "pairwise_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}
