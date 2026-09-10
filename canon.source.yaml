@@ -6,7 +6,10 @@ provider: github
 repository: Arcanada-one/arcanada-canon
 default_branch: main
 authority_domain: authority.arcanada
-visibility: private
+visibility: public
+# Repository visibility only. Runtime publication of a compiled canon stays
+# disabled until the authorization, review, fidelity, signing, isolation and
+# rollback gates are measured — a readable source is not a released canon.
 publication_enabled: false
 active_release: null
 unknown_root_policy: deny

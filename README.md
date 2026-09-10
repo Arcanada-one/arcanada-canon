@@ -1,8 +1,16 @@
 # Canon Arcana
 
-Canon Arcana is the Arcanada project for versioned charters, policies, protocol packages and their governed delivery to agents. This private repository is the first authoring home for new Canon work.
+Canon Arcana is the Arcanada project for versioned charters, policies, protocol packages and their governed delivery to agents. This repository is the first authoring home for new Canon work.
 
 The current delivery is a **source and governance bootstrap**. Production publication is disabled. The engine, resolver, guard, registry and portal integrations are planned work. A source file, valid JSON schema or council opinion does not establish runtime readiness.
+
+## Why this repository is public
+
+A canon that governs autonomous agents should be readable by the people those agents act around. What is open here is the constitution and how it is built: the charters themselves, the compiler prompts and schemas that compress them, the governance decisions, and the record of how each rule arrived. Watching a principle appear, get contested and change is the point — a canon presented only as a finished answer cannot be checked.
+
+Two limits, stated plainly. Some linked repositories stay private; those links record provenance, not access. And an open source tree is not a released canon — `publication_enabled` remains `false` until the gates named above are measured, so nothing here should be read as an active rule binding any running agent.
+
+Licensed under [MIT](LICENSE). Contributions follow the branch-and-PR flow in *Start here*.
 
 ## Start here
 
