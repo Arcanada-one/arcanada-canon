@@ -10,7 +10,7 @@ parent_scope: scope.space.angryrobot
 
 # Trading Back Tester project charter migration candidate
 
-The source charter is `trading-backtester-project-charter@r1` in workspace revision `c7a8b5810a6e210948cf5babc302b8648d839b42` (PR arcanada-workspace#1165), path `documentation/architecture/foundational-charters/store/trading-backtester-project-charter@r1.json`, content digest `sha256:76a16f21cca88b76d69e069fee73030b5286be6f2d79012e99626cdfb3f7edb6`. Its single owner dependency is `angryrobot-space-charter@r3` (`sha256:86aa98adb96cd57892280c3913203b78ac083319d82156040261a521d57b85c4`).
+The source charter is `trading-backtester-project-charter@r1` in workspace revision `0a704420514cd1ffbaf41a1d96c8fa4ce632fe76` (main, squash-merge of PR arcanada-workspace#1165), path `documentation/architecture/foundational-charters/store/trading-backtester-project-charter@r1.json`, content digest `sha256:76a16f21cca88b76d69e069fee73030b5286be6f2d79012e99626cdfb3f7edb6`. Its single owner dependency is `angryrobot-space-charter@r3` (`sha256:86aa98adb96cd57892280c3913203b78ac083319d82156040261a521d57b85c4`).
 
 Its declared purpose is retained as a source assertion for review: "Trading Back Tester is the research laboratory of the Angry Robot space that asks whether a durable trading edge exists in a multi-timeframe representation of the Forex market on seven major pairs, climbing a ladder from rules through supervised models to reinforcement learning, transfer, portfolio and adaptation, with gated tiers, receipts and a negative outcome accepted as a valid result."
 

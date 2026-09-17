@@ -13,7 +13,7 @@ galaxy: null
 modules: []
 source_registry:
   repository: Arcanada-one/arcanada-workspace
-  revision: c7a8b5810a6e210948cf5babc302b8648d839b42
+  revision: 0a704420514cd1ffbaf41a1d96c8fa4ce632fe76
   path: spaces/angryrobot/space.yml
   content_digest: sha256:21cf9911dac6b09a5ff055059ad0173408476f9c67230f85497be9621a01dc07
 membership_owner: workspace-spaces-registry
