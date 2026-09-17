@@ -1,0 +1,20 @@
+schema_version: canon-mount-bootstrap/v1
+id: mount.angryrobot
+status: draft
+runtime_eligible: false
+authority_domain: authority.arcanada
+mount_scope: scope.space.angryrobot
+inherited_universe: scope.universe.arcanada
+universe_access: read_only
+projects: [scope.project.trading-backtester]
+# The operator names the hierarchy "galaxy Arcanada -> space Angry Robot -> project";
+# no Galaxy level exists as an independent source (INTEGRATION-PLAN), so it stays null.
+galaxy: null
+modules: []
+source_registry:
+  repository: Arcanada-one/arcanada-workspace
+  revision: c7a8b5810a6e210948cf5babc302b8648d839b42
+  path: spaces/angryrobot/space.yml
+  content_digest: sha256:21cf9911dac6b09a5ff055059ad0173408476f9c67230f85497be9621a01dc07
+membership_owner: workspace-spaces-registry
+activation: disabled_pending_scope_auth_and_parity_receipts
