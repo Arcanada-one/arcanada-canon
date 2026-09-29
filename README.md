@@ -2,7 +2,7 @@
 
 Canon Arcana is the Arcanada project for versioned charters, policies, protocol packages and their governed delivery to agents. This repository is the first authoring home for new Canon work.
 
-The current delivery is a **source and governance bootstrap**. Production publication is disabled. The engine, resolver, guard, registry and portal integrations are planned work. A source file, valid JSON schema or council opinion does not establish runtime readiness.
+The current delivery is a **source and governance bootstrap**. Production publication is disabled. A bounded Python offline decision-policy experiment supplies synthetic contract and source-boundary tests. The production engine, resolver, guard, registry and portal integrations remain planned work. A source file, valid JSON schema or council opinion does not establish runtime readiness.
 
 ## Why this repository is public
 
@@ -43,3 +43,17 @@ One initial repository does not satisfy the eventual two-source federation accep
 - [Reference](docs/reference/README.md)
 - [Explanation](docs/explanation/README.md)
 - [Security policy](SECURITY.md)
+
+## Public base and private overlays
+
+Operator direction of 2026-09-29 confirms public baseCanon constitution plus
+private knowledge/know-how overlays. Constitution invariants, generic interfaces
+and synthetic examples are eligible for public review; operational policies,
+actor/tenant data, proprietary portfolios and raw prompts/telemetry stay with
+existing authorized private source owners. Resolve exact owner/source and safe
+references before integration; this repository allocates no overlay repository.
+
+PR #2's historical specifications/compiler material stays public provenance with
+its original bytes and hashes. That history neither clears future content nor
+becomes confidential by changing visibility. See [adoption](governance/adoption/README.md)
+and the [offline decision boundary](docs/reference/decision-policies.md).

@@ -1,0 +1,60 @@
+{
+  "schema": "DecisionPolicy/v1",
+  "id": "fixture-universe-policy",
+  "revision": 1,
+  "status": "draft",
+  "scope": {
+    "level": "universe",
+    "id": "fixture-universe"
+  },
+  "parent": null,
+  "sources": [],
+  "mandatory": [
+    "exact-applicability",
+    "authorization-independent",
+    "current-revocation",
+    "mandatory-validator-preservation",
+    "source-identity",
+    "kc2-semantic-authority",
+    "no-self-admission",
+    "no-publication-without-adoption"
+  ],
+  "decisions": [
+    {
+      "id": "model.tier",
+      "owner": "synthetic fixture author",
+      "applicability": "exact_resolved_scope",
+      "required_inputs": [
+        "task_goal",
+        "remaining_work",
+        "risk_class"
+      ],
+      "input_types": {
+        "task_goal": "text",
+        "remaining_work": "text",
+        "risk_class": "risk_class"
+      },
+      "options": {
+        "economy": "Bounded mechanical reasoning capability",
+        "balanced": "General engineering reasoning capability",
+        "high_assurance": "Complex or high-risk reasoning capability"
+      },
+      "primitive": "choice",
+      "score_semantics": "normalized_option_mass",
+      "calibration": "not_measured",
+      "threshold_ppm": 700000,
+      "threshold_basis": "Experimental offline boundary only; not calibrated or authorized for production. Consumer-specific loss and calibration evidence required before adoption.",
+      "abstention": "retain_baseline",
+      "failure_policy": "retain_baseline_unless_deterministic_denial",
+      "action": "recommend_optional",
+      "precedence": "higher_first_no_semantic_override",
+      "privacy_class": "internal",
+      "evaluation_obligations": [
+        "negative controls for authority and missing context",
+        "consumer applied-action trace separate from recommendation",
+        "future cohort calibration and accepted-work impact"
+      ],
+      "source_digests": []
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Offline reference compiler; this version was exercised locally.
+jsonschema==4.23.0
