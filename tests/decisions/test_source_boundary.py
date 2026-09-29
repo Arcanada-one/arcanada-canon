@@ -284,6 +284,16 @@ class SourceBoundaryTests(unittest.TestCase):
         (self.private/self.bundle['entries'][1]['path']).write_bytes(b'yes')
         self.assertEqual(self.public_run(),expected)
 
+    def test_non_refusal_failures_collapse_to_the_public_constant(self):
+        expected=public_receipt()
+        # A body that trips the int-digit limit must not surface as ValueError.
+        (self.private/self.bundle['entries'][1]['path']).write_bytes(b'{"a":'+b'9'*5000+b'}')
+        self.assertEqual(self.public_run(),expected)
+        # A missing keyword (TypeError/KeyError inside the private run) is not observable either.
+        args=dict(self.args); args.pop('now')
+        self.assertEqual(run_public_shadow(self.bundle,self.request,self.evidence,
+                                           deterministic_verdict='allow',**args),expected)
+
     def test_public_constant_does_not_alias_internal_state(self):
         result=self.public_run(); result['mode']='changed'
         self.assertEqual(self.public_run()['mode'],'offline_shadow')

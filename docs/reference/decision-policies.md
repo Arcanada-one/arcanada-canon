@@ -108,8 +108,3 @@ the next exact consumer slice. Per-class disclosure, independent prior-policy
 review, exact PR-head CI and resulting-main evidence precede publication of new
 content; runtime adds fidelity, signatures/revocation, actual tenant body reads,
 action guards, federation, restore and rollback gates.
-
-The 2026-09-29 review observed reachable public Canon and byte-equivalent inputs.
-The implementation sandbox's DNS/Orca refusal is session-local and dated, not a
-host outage or a blanket visibility conflict. Prior source pins are retained in
-the private lane; unchanged bytes do not justify replacing their revision hashes.

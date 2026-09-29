@@ -26,8 +26,10 @@ def public_receipt():
 
 
 def run_public_shadow(*args, **kwargs):
+    # Any failure, not only a Refusal, must collapse to the same constant:
+    # an exception type or message would be a content-dependent side channel.
     try:
         run_private_shadow(*args, **kwargs)
-    except Refusal:
+    except Exception:  # noqa: BLE001 - deliberate constant-output boundary
         pass
     return public_receipt()

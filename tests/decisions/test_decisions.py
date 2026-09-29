@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from engine.decisions import Refusal, digest, evaluate, load_json, resolve
-from engine.decisions.model import byte_digest, canonical, read_canon, validate
+from engine.decisions.model import byte_digest, canonical, validate
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -334,17 +334,8 @@ class DecisionTests(unittest.TestCase):
         with self.assertRaisesRegex(Refusal, "WRONG_SCOPE"):
             self.evaluate()
 
-    def test_source_root_and_symlink_rejection(self):
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp); (root / "canon").mkdir(); (root / "proposals").mkdir()
-            (root / "proposals/x.json").write_text('{}')
-            (root / "canon/link.json").symlink_to(root / "proposals/x.json")
-            for path in ["proposals/x.json", "canon/../proposals/x.json", "canon/link.json", str(root / "proposals/x.json")]:
-                with self.subTest(path=path), self.assertRaises(Refusal):
-                    read_canon(root, path)
-
     def test_duplicate_json_and_float_rejection(self):
-        for raw in ['{"id":1,"id":2}', '{"x":NaN}', '{"x":0.4}']:
+        for raw in ['{"id":1,"id":2}', '{"x":NaN}', '{"x":0.4}', '{"x":' + '9'*5000 + '}', b'\xff']:
             with self.subTest(raw=raw), self.assertRaises(Refusal):
                 load_json(raw)
 

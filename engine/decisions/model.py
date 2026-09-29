@@ -60,7 +60,8 @@ def load_json(data):
         value = json.loads(data, object_pairs_hook=_pairs)
         _json_values(value)
         return value
-    except (UnicodeError, json.JSONDecodeError, RecursionError) as exc:
+    except (ValueError, RecursionError):
+        # ValueError covers JSONDecodeError, UnicodeError and the int-digit limit.
         raise Refusal("INVALID_JSON") from None
 
 
@@ -71,19 +72,3 @@ def validate(kind, value):
     schema["$ref"] = "#/$defs/" + kind
     if next(Draft202012Validator(schema).iter_errors(value), None) is not None:
         raise Refusal("INVALID_" + kind.upper())
-
-
-def read_canon(root, relative):
-    """Only exact regular files below /canon, without symlinks or traversal."""
-    path = Path(relative)
-    require(not path.is_absolute() and path.parts and path.parts[0] == "canon"
-            and ".." not in path.parts and "\\" not in relative,
-            "SOURCE_ROOT_EXCLUDED")
-    root = Path(root).resolve()
-    current = root
-    for part in path.parts:
-        current = current / part
-        require(not current.is_symlink(), "SOURCE_SYMLINK_EXCLUDED")
-    require(current.is_file() and current.resolve().is_relative_to(root / "canon"),
-            "SOURCE_ROOT_EXCLUDED")
-    return load_json(current.read_bytes())

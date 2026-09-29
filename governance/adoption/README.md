@@ -1,6 +1,6 @@
 # Adoption authority and admission
 
-The ongoing public baseCanon specification and governance home is this repository. It was opened by [PR #2](https://github.com/Arcanada-one/arcanada-canon/pull/2) on 2026-09-10; the earlier private-initial assumption is historical. Original workspace source files remain immutable provenance. Source intent has not been replaced by its compiler output.
+This repository has been public since 2026-09-09 (GitHub repository visibility event); [PR #2](https://github.com/Arcanada-one/arcanada-canon/pull/2), merged 2026-09-10, prepared that publication. The public baseCanon direction is carried by the successor decision below; until it is effective, DEC-AUP-0026's other terms continue to govern. Original workspace source files remain immutable provenance. Source intent has not been replaced by its compiler output.
 
 [DEC-AUP-0022 through 0026](https://github.com/Arcanada-one/arcanada-universal-program/tree/main/governance/decisions) establish discovery/completeness, autonomous delivery, foundation review, terminology/KC2 and single-repository migration. [Integration plan and work packages](https://github.com/Arcanada-one/arcanada-workspace/blob/main/documentation/source-specifications/canon-arcana/INTEGRATION-PLAN.md) are the adoption baseline; native task state belongs to Muneral.
 
@@ -14,9 +14,10 @@ Original verifier v1 admits an empty-evidence pass. Imported prompts are rejecte
 
 The operator approves a public base constitution plus existing-owner private
 knowledge/know-how overlays. CANON-C02-00 owns the bounded AUP successor to
-DEC-AUP-0026's private-initial allocation/access assumptions. Its numbered
-decision allocation and main admission are still pending; this interpretation
-does not claim that an unallocated proposal is effective governance.
+DEC-AUP-0026's private-initial allocation/access assumptions, allocated as
+[DEC-AUP-0063](https://github.com/Arcanada-one/arcanada-universal-program/blob/main/governance/decisions/DEC-AUP-0063.json).
+It is effective only once merged to the program's main branch; this
+interpretation does not claim effectiveness before that.
 
 | Class | Disposition |
 | --- | --- |
