@@ -1,0 +1,1204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcanada:decision-policy:v1",
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "enum": [
+            "universe",
+            "space",
+            "project",
+            "role",
+            "agent"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "level",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "pin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "digest"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "kind": {
+          "enum": [
+            "scientific_description",
+            "existing_mandate",
+            "operator_intent",
+            "registry"
+          ]
+        }
+      },
+      "required": [
+        "repository",
+        "revision",
+        "path",
+        "digest",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "applicability": {
+          "enum": [
+            "exact_resolved_scope"
+          ]
+        },
+        "required_inputs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "input_types": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "additionalProperties": {
+            "enum": [
+              "text",
+              "identifier_list",
+              "risk_class"
+            ]
+          }
+        },
+        "options": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "primitive": {
+          "enum": [
+            "choice",
+            "independent_probability",
+            "score"
+          ]
+        },
+        "score_semantics": {
+          "enum": [
+            "normalized_option_mass",
+            "independent_event_estimate",
+            "bounded_ordinal_utility"
+          ]
+        },
+        "calibration": {
+          "enum": [
+            "not_measured"
+          ]
+        },
+        "threshold_ppm": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "threshold_basis": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "abstention": {
+          "enum": [
+            "retain_baseline"
+          ]
+        },
+        "failure_policy": {
+          "enum": [
+            "retain_baseline_unless_deterministic_denial"
+          ]
+        },
+        "action": {
+          "enum": [
+            "recommend_optional"
+          ]
+        },
+        "precedence": {
+          "enum": [
+            "higher_first_no_semantic_override"
+          ]
+        },
+        "privacy_class": {
+          "enum": [
+            "public",
+            "internal",
+            "confidential",
+            "regulated"
+          ]
+        },
+        "evaluation_obligations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "source_digests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "applicability",
+        "required_inputs",
+        "input_types",
+        "options",
+        "primitive",
+        "score_semantics",
+        "calibration",
+        "threshold_ppm",
+        "threshold_basis",
+        "abstention",
+        "failure_policy",
+        "action",
+        "precedence",
+        "privacy_class",
+        "evaluation_obligations",
+        "source_digests"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "choice"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "score_semantics": {
+                "const": "normalized_option_mass"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "independent_probability"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "score_semantics": {
+                "const": "independent_event_estimate"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "score"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "score_semantics": {
+                "const": "bounded_ordinal_utility"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionPolicy/v1"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "draft"
+          ]
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "parent": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/pin"
+            }
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "mandatory": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/decision"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema",
+        "id",
+        "revision",
+        "status",
+        "scope",
+        "parent",
+        "sources",
+        "mandatory",
+        "decisions"
+      ],
+      "additionalProperties": false
+    },
+    "chain_ref": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        }
+      },
+      "required": [
+        "id",
+        "digest",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionPolicySnapshot/v1"
+        },
+        "purpose": {
+          "enum": [
+            "offline_fixture_not_admission"
+          ]
+        },
+        "valid_from": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "registry_pin": {
+          "$ref": "#/$defs/source"
+        },
+        "source_digests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "revoked_digests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/chain_ref"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema",
+        "purpose",
+        "valid_from",
+        "expires_at",
+        "registry_pin",
+        "source_digests",
+        "sources",
+        "revoked_digests",
+        "policies"
+      ],
+      "additionalProperties": false
+    },
+    "bindings": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionScopeBindings/v1"
+        },
+        "status": {
+          "enum": [
+            "draft_offline_projection"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "scope_chains": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/scope"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema",
+        "status",
+        "sources",
+        "scope_chains"
+      ],
+      "additionalProperties": false
+    },
+    "projection": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "ResolvedDecisionPolicy/v1"
+        },
+        "mode": {
+          "enum": [
+            "offline_shadow"
+          ]
+        },
+        "publication_enabled": {
+          "const": false
+        },
+        "snapshot_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "registry_pin": {
+          "$ref": "#/$defs/source"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "lineage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/chain_ref"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "mandatory": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/decision"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema",
+        "mode",
+        "publication_enabled",
+        "snapshot_digest",
+        "registry_pin",
+        "scope",
+        "lineage",
+        "mandatory",
+        "decisions"
+      ],
+      "additionalProperties": false
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionRequest/v1"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "decision_type": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "projection_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "state_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "baseline": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "schema",
+        "id",
+        "decision_type",
+        "projection_digest",
+        "scope",
+        "state",
+        "state_digest",
+        "candidates",
+        "baseline"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionEvidence/v1"
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "provider": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "model": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "model_version": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "primitive": {
+          "enum": [
+            "choice",
+            "independent_probability",
+            "score"
+          ]
+        },
+        "score_semantics": {
+          "enum": [
+            "normalized_option_mass",
+            "independent_event_estimate",
+            "bounded_ordinal_utility"
+          ]
+        },
+        "values_ppm": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "calibration": {
+          "enum": [
+            "not_measured"
+          ]
+        },
+        "abstain": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema",
+        "request_digest",
+        "provider",
+        "model",
+        "model_version",
+        "primitive",
+        "score_semantics",
+        "values_ppm",
+        "calibration",
+        "abstain"
+      ],
+      "additionalProperties": false
+    },
+    "trace": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "DecisionTrace/v1"
+        },
+        "mode": {
+          "enum": [
+            "offline_shadow"
+          ]
+        },
+        "applied": {
+          "const": false
+        },
+        "authorization_granted": {
+          "const": false
+        },
+        "decision_type": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "projection_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "snapshot_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "state_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "candidate_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "lineage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/chain_ref"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "mandatory": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "baseline": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        },
+        "threshold_ppm": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "threshold_basis": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "evidence_digest": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provider": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model_version": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observations": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "calibration": {
+          "enum": [
+            "not_measured"
+          ]
+        },
+        "recommended": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+            "maxLength": 200
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "policy_action": {
+          "enum": [
+            "deny",
+            "retain_baseline",
+            "recommend_optional"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:@/-]*$",
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "schema",
+        "mode",
+        "applied",
+        "authorization_granted",
+        "decision_type",
+        "request_id",
+        "request_digest",
+        "projection_digest",
+        "snapshot_digest",
+        "state_digest",
+        "candidate_digest",
+        "scope",
+        "lineage",
+        "mandatory",
+        "baseline",
+        "threshold_ppm",
+        "threshold_basis",
+        "evidence_digest",
+        "provider",
+        "model",
+        "model_version",
+        "observations",
+        "calibration",
+        "recommended",
+        "policy_action",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "source_entry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "revision",
+            "digest",
+            "authority",
+            "scope",
+            "parent",
+            "classification",
+            "path",
+            "required",
+            "valid_from",
+            "expires_at",
+            "access",
+            "kind",
+            "policy_pin"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "authority": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "scope": {
+              "$ref": "#/$defs/scope"
+            },
+            "parent": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/$defs/pin"
+                }
+              ]
+            },
+            "classification": {
+              "enum": [
+                "public_base",
+                "private_overlay"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "required": {
+              "const": true
+            },
+            "valid_from": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "expires_at": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "access": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "actor",
+                "tenant",
+                "decision",
+                "purpose"
+              ],
+              "properties": {
+                "actor": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "tenant": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "decision": {
+                  "enum": [
+                    "allow",
+                    "deny",
+                    "unknown"
+                  ]
+                },
+                "purpose": {
+                  "const": "offline_fixture_not_grant"
+                }
+              }
+            },
+            "kind": {
+              "const": "policy"
+            },
+            "policy_pin": {
+              "$ref": "#/$defs/chain_ref"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "revision",
+            "digest",
+            "authority",
+            "scope",
+            "parent",
+            "classification",
+            "path",
+            "required",
+            "valid_from",
+            "expires_at",
+            "access",
+            "kind",
+            "source_ref"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "authority": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "scope": {
+              "$ref": "#/$defs/scope"
+            },
+            "parent": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/$defs/pin"
+                }
+              ]
+            },
+            "classification": {
+              "enum": [
+                "public_base",
+                "private_overlay"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "required": {
+              "const": true
+            },
+            "valid_from": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "expires_at": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "access": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "actor",
+                "tenant",
+                "decision",
+                "purpose"
+              ],
+              "properties": {
+                "actor": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "tenant": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "decision": {
+                  "enum": [
+                    "allow",
+                    "deny",
+                    "unknown"
+                  ]
+                },
+                "purpose": {
+                  "const": "offline_fixture_not_grant"
+                }
+              }
+            },
+            "kind": {
+              "const": "source"
+            },
+            "source_ref": {
+              "$ref": "#/$defs/source"
+            }
+          }
+        }
+      ]
+    },
+    "source_bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "purpose",
+        "valid_from",
+        "expires_at",
+        "snapshot",
+        "snapshot_digest",
+        "required_sources",
+        "revoked_digests",
+        "entries"
+      ],
+      "properties": {
+        "schema": {
+          "const": "DecisionSourceBundle/v1"
+        },
+        "purpose": {
+          "const": "offline_fixture_not_admission"
+        },
+        "valid_from": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "snapshot": {
+          "$ref": "#/$defs/snapshot"
+        },
+        "snapshot_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "required_sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "revoked_digests": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "$ref": "#/$defs/source_entry"
+          }
+        }
+      }
+    }
+  },
+  "$ref": "#/$defs/policy"
+}
