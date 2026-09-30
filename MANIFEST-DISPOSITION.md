@@ -83,7 +83,7 @@ nor a line-ending-only discrepancy. Both original and later bytes are available.
   mandate and remaining implementation, a dated Muneral index-access observation,
   and the reconstructed version-diff. Other questions are unchanged.
 
-The referenced reconstructed diff exists locally: 115741 bytes, 2639 lines,
+The referenced reconstructed diff is on Canon `main`: 115741 bytes, 2639 lines,
 SHA-256 `71e2cd914480662ffcc1622d284c0bcc4ca976e5eef2ecc9c007ec74df0f1886`.
 It is a separate derived artifact, not proof of the missing author's original
 file, its creation procedure or its checksum. It is not one of the 39 entries.
