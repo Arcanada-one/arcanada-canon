@@ -1,0 +1,60 @@
+{
+  "schema": "VerifyProfile/v1",
+  "note": "Offline scope consistency checks only; no mandatory verifier disabled or exemption.",
+  "deployables": {},
+  "property_checks": {
+    "code_unit:engine/decisions/resolve.py": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/decisions",
+      "-p",
+      "test_hierarchy.py",
+      "-q"
+    ],
+    "code_unit:engine/decisions/load.py": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/decisions",
+      "-p",
+      "test_hierarchy.py",
+      "-q"
+    ],
+    "code_unit:engine/decisions/shadow.py": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/decisions",
+      "-p",
+      "test_hierarchy.py",
+      "-q"
+    ],
+    "code_unit:tests/decisions/test_hierarchy.py": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/decisions",
+      "-p",
+      "test_hierarchy.py",
+      "-q"
+    ],
+    "code_unit:tests/decisions/hierarchy_canary.py": [
+      "python3",
+      "-B",
+      "tests/decisions/hierarchy_canary.py"
+    ]
+  }
+}

@@ -108,3 +108,35 @@ the next exact consumer slice. Per-class disclosure, independent prior-policy
 review, exact PR-head CI and resulting-main evidence precede publication of new
 content; runtime adds fidelity, signatures/revocation, actual tenant body reads,
 action guards, federation, restore and rollback gates.
+
+## Scope registry consistency
+
+The offline `DecisionScopeBindings/v1` consumer validates every registered chain,
+including those outside the selected policy path. A binding document describes
+one universe and at most 1024 chains, each with one to five entries in the
+existing experimental universe/space/project/role/agent order. Missing or repeated
+rungs refuse; a valid selected chain cannot hide an invalid sibling chain.
+
+Typed space and project IDs have one immediate parent across the document. A
+project registered beneath two different spaces refuses with
+`AMBIGUOUS_SCOPE_PARENT`, even if both chains and every source digest are pinned.
+Distinct projects may share a space; prefixes may recur across chains. Identity
+is exact and typed: equal text at different levels is not a collision. This
+check does not normalize aliases or infer project identity from repository names.
+The existing role/agent labels remain contextual test-profile labels; equal role
+names in different projects do not establish shared ownership or a new canonical
+scope rung. Galaxy and Module are not added.
+
+`MULTIPLE_SCOPE_UNIVERSES` and `INVALID_REGISTERED_SCOPE_CHAIN` are private stable
+refusal codes without IDs or source bodies. The actual filesystem loader invokes
+this validation through the existing resolver before shadow evaluation. A
+conflict never reaches probability evaluation; the public facade still emits the
+same constant for success and refusal. No fallback selects whichever parent was
+listed first, and no valid selected prefix sanitizes a contradictory registry.
+
+These checks establish internal consistency of caller-pinned offline inputs,
+not registration truth, issuer authority, owner assignment, KC2 semantics or
+Canon L18 completion. Production hierarchy mapping and admission remain separate
+work. Existing snapshot/source/parent/revocation checks and mandatory obligations
+continue to apply. To roll back, revert this source correction; do not silently
+rewrite registry history or repin a conflicting live source.

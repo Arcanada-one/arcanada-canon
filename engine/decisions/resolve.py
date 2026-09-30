@@ -7,6 +7,30 @@ from .model import byte_digest, digest, load_json, require, validate
 LEVELS = ("universe", "space", "project", "role", "agent")
 
 
+def check_scope_bindings(bindings):
+    """Validate the whole offline registry, not just the selected path.
+
+    Space/project identities have one immediate parent. Role/agent labels
+    remain contextual in this experimental profile; this does not register
+    owners, infer project identity from a repository, or grant authority.
+    """
+    validate("bindings", bindings)
+    universe, parents = None, {}
+    for chain in bindings["scope_chains"]:
+        require([scope["level"] for scope in chain] == list(LEVELS[:len(chain)]),
+                "INVALID_REGISTERED_SCOPE_CHAIN")
+        root = chain[0]["id"]
+        require(universe is None or universe == root, "MULTIPLE_SCOPE_UNIVERSES")
+        universe = root
+        for index in range(1, min(len(chain), 3)):
+            scope, parent = chain[index], chain[index - 1]
+            identity = (scope["level"], scope["id"])
+            parent_identity = (parent["level"], parent["id"])
+            require(identity not in parents or parents[identity] == parent_identity,
+                    "AMBIGUOUS_SCOPE_PARENT")
+            parents[identity] = parent_identity
+
+
 def check_snapshot(snapshot, expected_digest, now):
     validate("snapshot", snapshot)
     require(type(now) is int and now >= 0, "INVALID_CLOCK")
@@ -50,7 +74,7 @@ def resolve(policies, snapshot, *, expected_snapshot_digest, target_scope,
     require(snapshot["registry_pin"]["kind"] == "registry", "REGISTRY_KIND_MISMATCH")
     require(snapshot["registry_pin"] in snapshot["sources"], "SOURCE_IDENTITY_MISMATCH")
     bindings = load_json(sources[snapshot["registry_pin"]["digest"]])
-    validate("bindings", bindings)
+    check_scope_bindings(bindings)
     require(scopes in bindings["scope_chains"], "UNREGISTERED_SCOPE_CHAIN")
     require(all(s in snapshot["sources"] for s in bindings["sources"]),
             "REGISTRY_PROVENANCE_MISSING")

@@ -37,3 +37,16 @@ unchanged historical pins; do not rescue a stale projection by replacing hashes.
 Keep local test, independent review, PR-head CI, resulting-main and runtime
 receipts separate. L01/L05/L18 and real consumer completion are not established
 by this offline suite.
+
+For the bounded hierarchy consistency regression, run:
+
+```bash
+python3 -B -m unittest discover -s tests/decisions -p test_hierarchy.py -v
+python3 -B tests/decisions/hierarchy_canary.py
+```
+
+Run the canary as a separate Python process over the real filesystem loader and
+private/public shadow facades, using only synthetic pinned files. It checks
+preserved mandatory obligations, rejection of a fully resealed matrix project,
+and constant public output. No socket, provider or model call is required. Any
+future loopback probe must run inside a private network namespace.
