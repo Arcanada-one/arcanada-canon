@@ -57,3 +57,7 @@ PR #2's historical specifications/compiler material stays public provenance with
 its original bytes and hashes. That history neither clears future content nor
 becomes confidential by changing visibility. See [adoption](governance/adoption/README.md)
 and the [offline decision boundary](docs/reference/decision-policies.md).
+
+## Project descriptions
+
+- [Prime Agent: professional knowledge collection and enrichment](canon/scopes/projects/prime-agent/index.md) — in development; descriptive draft, no runtime authority.
