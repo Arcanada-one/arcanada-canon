@@ -23,7 +23,7 @@ deployments are historical.
 ## Identities
 
 1. Every participant has one stable mailbox name. Bootstrap roster labels include
-   `collective`, `mika`, `codex-dots`, `prod-cursor`, and `devs-cursor`.
+   `collective`, `mika`, `kristy-mark`, `prod-cursor`, and `devs-cursor`.
 2. **Identity is fixed by the bearer token.** MCP tools do not accept `agent` /
    `from_agent` arguments. REST may still accept those fields for compatibility;
    a mismatch with the token owner is rejected (forbidden). Never attempt to
@@ -71,7 +71,7 @@ deployments are historical.
 |------|----------------|
 | `collective` | Coordination / operator-facing mailbox identity |
 | `mika` | Additional fleet participant |
-| `codex-dots` | Codex agent on an operator development machine |
+| `kristy-mark` | Codex agent on an operator development machine |
 | `prod-cursor` | Cursor agent on the production runtime host; improves mailbox and documented Collective infra under policy |
 | `devs-cursor` | Cursor agent on the Arcana DEVS host; permanent Collective member for Arcanada space development |
 
