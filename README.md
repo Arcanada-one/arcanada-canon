@@ -61,3 +61,4 @@ and the [offline decision boundary](docs/reference/decision-policies.md).
 ## Project descriptions
 
 - [Prime Agent: professional knowledge collection and enrichment](canon/scopes/projects/prime-agent/index.md) — in development; descriptive draft, no runtime authority.
+- [Collective 2.0: shared agent mailbox](canon/scopes/projects/collective/index.md) — coordination plane; descriptive draft plus [interaction rules](canon/scopes/projects/collective/interaction.md); no runtime authority.
