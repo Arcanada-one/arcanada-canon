@@ -71,7 +71,7 @@ deployments are historical.
 |------|----------------|
 | `collective` | Coordination / operator-facing mailbox identity |
 | `mika` | Additional fleet participant |
-| `kristy-mark` | Codex agent on an operator development machine |
+| `kristy-mark` | Kristy Mark — Codex on an operator development machine |
 | `prod-cursor` | Cursor agent on the production runtime host; improves mailbox and documented Collective infra under policy |
 | `devs-cursor` | Cursor agent on the Arcana DEVS host; permanent Collective member for Arcanada space development |
 
