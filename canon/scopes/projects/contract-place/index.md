@@ -17,6 +17,29 @@ papers, specifications, a corpus and reference code. The public surfaces are
 [https://github.com/Arcanada-one/knowledge-contract](https://github.com/Arcanada-one/knowledge-contract).
 The project is part of the Arcanada ecosystem.
 
+## Purpose
+
+Knowledge Contract Arcana is about managing knowledge and its reuse by people and
+agents: contracts for managing the heritage of human knowledge. Each piece of
+knowledge travels with its source, author, scope and evidence.
+
+The project is designed to replace the hand-written skills, rules and prompt
+files that are kept separately in each agent harness with one unified knowledge
+contract. The contract is meant to evolve itself (changes admitted only on
+evidence, versioned, with rollback) and to improve through the community and
+contributors, so that it stays ahead of any single harness or skill set.
+
+Status, stated honestly:
+
+- **Working today:** the public research hub at contract.place, the open
+  knowledge and specifications repository, open licensing with mandatory
+  attribution, and published research papers.
+- **Planned, not built:** the unified contract that replaces per-harness skills,
+  rules and prompt files; the self-evolution loop; community intake and review;
+  a sourced corpus of human knowledge on meaning management; knowledge selection
+  with a provenance receipt for every answer; search and access for people and
+  agents (graph and vector search, an API and an MCP server).
+
 ## Intended work
 
 The project publishes reviewed knowledge and the contracts that let agents select,
@@ -30,7 +53,7 @@ private digests or private topology.
 |---------|------|
 | [knowledge-contract](https://github.com/Arcanada-one/knowledge-contract) | Public papers, specifications, schemas, tools and corpus |
 | [contract-place-site](https://github.com/Arcanada-one/contract-place-site) | Public site source, published at contract.place |
-| contract-place-api | Private service repository; see the open item below |
+| contract-place-api | Closed, proprietary backend (engine); see the decided boundary below |
 
 ## Openness and attribution
 
@@ -64,13 +87,15 @@ Normative files in the public repository:
 [NOTICE](https://github.com/Arcanada-one/knowledge-contract/blob/main/NOTICE),
 [ATTRIBUTION.md](https://github.com/Arcanada-one/knowledge-contract/blob/main/ATTRIBUTION.md).
 
-### Open item: private API versus open project
+### Decided boundary: open knowledge, closed backend
 
-The service repository `contract-place-api` is private by standing operator
-order, while the project is declared open. Openness applies to the knowledge, the
-specifications, the papers, the site and reference code; it does not apply to
-the private service. This conflict is recorded and held. It is not resolved by
-default and this charter does not change any repository visibility.
+The backend, `contract-place-api`, is the engine that processes, admits and
+evolves contracts. It stays closed and proprietary: it is the operator's
+know-how, and the repository remains private. This is a decided boundary, not an
+open conflict. The knowledge is open (CC BY 4.0 for text, Apache-2.0 for code and
+schemas, attribution required) and open to extension by the community and
+contributors: the papers, specifications, corpus, schemas, site and reference
+code. This charter does not change any repository visibility.
 
 ## Scope and ownership boundaries
 
