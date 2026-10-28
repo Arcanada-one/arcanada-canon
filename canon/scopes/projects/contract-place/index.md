@@ -10,17 +10,47 @@ owner_space: arcanada
 
 # Knowledge Contract Arcana (Contract Place) project description and semantic scope
 
-Knowledge Contract Arcana is an open, public project that collects a large share
-of humanity's knowledge about meaning management and makes it available as
-papers, specifications, a corpus and reference code. The public surfaces are
+Knowledge Contract Arcana is an open, public project that aims to collect a
+large share of humanity's knowledge about meaning management and to make it
+available as papers, specifications, a corpus and reference code; these are
+planned, see Purpose. The public surfaces are
 [https://contract.place](https://contract.place) and
 [https://github.com/Arcanada-one/knowledge-contract](https://github.com/Arcanada-one/knowledge-contract).
 The project is part of the Arcanada ecosystem.
 
+## Purpose
+
+Knowledge Contract Arcana is about managing knowledge and its reuse by people and
+agents: contracts for managing the heritage of human knowledge. The contract is
+designed so that each piece of knowledge will travel with its source, author,
+scope and evidence.
+
+The project is designed to replace the hand-written skills, rules and prompt
+files that are kept separately in each agent harness with one unified knowledge
+contract. The contract is meant to evolve itself (changes admitted only on
+evidence, versioned, with rollback) and to improve through the community and
+contributors, so that it stays ahead of any single harness or skill set.
+
+Status, stated honestly:
+
+- **Working today:** the public hub at contract.place; the licensing and
+  attribution mechanics (CC BY 4.0 for text, Apache-2.0 for code, NOTICE,
+  ATTRIBUTION.md, CITATION.cff, REUSE compliance, DCO sign-off, and a source
+  register with a CI check); the knowledge-contract repository as a public
+  scaffold with rules, governance and tools; and two published articles on
+  arcanada.ai (architecture and version 2).
+- **Planned, not built:** published specifications and papers in the
+  repository; a sourced corpus of human knowledge on meaning management (the
+  corpus allowlist has no approved entries yet); the unified contract that
+  replaces per-harness skills, rules and prompt files; the self-evolution loop;
+  community intake and review; knowledge selection with a provenance receipt
+  for every answer; search and access for people and agents (graph and vector
+  search, an API and an MCP server).
+
 ## Intended work
 
-The project publishes reviewed knowledge and the contracts that let agents select,
-fit and cite it. Work items live only in Muneral (workspace project slug
+The project is intended to publish reviewed knowledge and the contracts that let
+agents select, fit and cite it. Work items live only in Muneral (workspace project slug
 `contract-place`, task prefix `KCP`). This charter does not publish secrets,
 private digests or private topology.
 
@@ -28,9 +58,9 @@ private digests or private topology.
 
 | Surface | Role |
 |---------|------|
-| [knowledge-contract](https://github.com/Arcanada-one/knowledge-contract) | Public papers, specifications, schemas, tools and corpus |
+| [knowledge-contract](https://github.com/Arcanada-one/knowledge-contract) | Public scaffold today (rules, governance, tools); papers, specifications, schemas and corpus are planned |
 | [contract-place-site](https://github.com/Arcanada-one/contract-place-site) | Public site source, published at contract.place |
-| contract-place-api | Private service repository; see the open item below |
+| contract-place-api | Closed, proprietary backend (engine); see the decided boundary below |
 
 ## Openness and attribution
 
@@ -64,13 +94,15 @@ Normative files in the public repository:
 [NOTICE](https://github.com/Arcanada-one/knowledge-contract/blob/main/NOTICE),
 [ATTRIBUTION.md](https://github.com/Arcanada-one/knowledge-contract/blob/main/ATTRIBUTION.md).
 
-### Open item: private API versus open project
+### Decided boundary: open knowledge, closed backend
 
-The service repository `contract-place-api` is private by standing operator
-order, while the project is declared open. Openness applies to the knowledge, the
-specifications, the papers, the site and reference code; it does not apply to
-the private service. This conflict is recorded and held. It is not resolved by
-default and this charter does not change any repository visibility.
+The backend, `contract-place-api`, is the engine that processes, admits and
+evolves contracts. It stays closed and proprietary: it is the operator's
+know-how, and the repository remains private. This is a decided boundary, not an
+open conflict. The knowledge is open (CC BY 4.0 for text, Apache-2.0 for code and
+schemas, attribution required) and open to extension by the community and
+contributors: the papers, specifications, corpus, schemas, site and reference
+code. This charter does not change any repository visibility.
 
 ## Scope and ownership boundaries
 
