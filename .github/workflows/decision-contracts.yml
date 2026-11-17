@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   offline-contracts:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, ci-general]
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -28,7 +28,7 @@ jobs:
       - run: python -B tests/decisions/check_architecture.py
       - run: python -m compileall -q engine tests/decisions
   dependency-audit:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, ci-general]
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
