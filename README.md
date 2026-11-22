@@ -63,3 +63,4 @@ and the [offline decision boundary](docs/reference/decision-policies.md).
 - [Prime Agent: professional knowledge collection and enrichment](canon/scopes/projects/prime-agent/index.md) — in development; descriptive draft, no runtime authority.
 - [Collective 2.0: shared agent mailbox](canon/scopes/projects/collective/index.md) — coordination plane; descriptive draft plus [interaction rules](canon/scopes/projects/collective/interaction.md); no runtime authority.
 - [Knowledge Contract Arcana (Contract Place)](canon/scopes/projects/contract-place/index.md) — open knowledge, closed backend; descriptive draft with purpose and openness and attribution policy; no runtime authority.
+- [Food&Ammo: essential supply chains and logistics](canon/scopes/projects/foodamunition/index.md) — in development; descriptive project candidate and [space goals](canon/scopes/spaces/foodamunition/index.md); no runtime authority.
